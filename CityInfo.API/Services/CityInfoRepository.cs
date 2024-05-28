@@ -14,11 +14,6 @@ namespace CityInfo.API.Services
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<IEnumerable<City>> GetCitiesAsync()
-        {
-            return await _context.Cities.OrderBy(c => c.Name).ToListAsync();
-        }
-
         public async Task<(IEnumerable<City>, PaginationMetaData)> GetCitiesAsync(string? name, string? searchQuery,
             int pageNumber, int pageSize)
         {
