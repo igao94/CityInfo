@@ -10,7 +10,7 @@ namespace CityInfo.API.Models.Entites
         public int Id { get; set; }
         [Required]
         [MaxLength(50)]
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; }
         [MaxLength(200)]
         public string? Description { get; set; }
         public ICollection<PointOfInterest> PointsOfInterest { get; set; } =
