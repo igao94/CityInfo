@@ -82,7 +82,7 @@ namespace CityInfo.API.Services
         {
             var city = await GetCityAsync(cityId, false);
 
-            if (city != null) city.PointsOfInterest.Add(pointOfInterest);
+            city?.PointsOfInterest.Add(pointOfInterest);
 
             await _context.SaveChangesAsync();
         }

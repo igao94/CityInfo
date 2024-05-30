@@ -29,11 +29,11 @@ namespace CityInfo.API.Controllers
         {
             if (pageSize > maxCitiesPageSize) _ = maxCitiesPageSize;
 
-            var (cities, paginationMetadata) = await _cityInfoRepository
+            var (cities, paginationMetaData) = await _cityInfoRepository
                 .GetCitiesAsync(name, searchQuery, pageNumber, pageSize);
 
-            Response.Headers.Add("X-Pagination",
-                JsonSerializer.Serialize(paginationMetadata));
+            Response.Headers.Append("X-Pagination",
+                JsonSerializer.Serialize(paginationMetaData));
 
             return Ok(_mapper.Map<IEnumerable<CityWihoutPointOfInterestDto>>(cities));
         }
